@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - helmrelease.yaml
 
-patches:
-  -path: values-prometheus.yaml
+# patches:
+#   -path: values-prometheus.yaml
