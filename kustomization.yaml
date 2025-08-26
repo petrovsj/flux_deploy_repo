@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: ./prometheus
+  path: ./monitor
   prune: true
   sourceRef:
     kind: GitRepository
