@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: "77.4.0"  # pin version if desired
+      version: "77.0.1"  # pin version if desired
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
