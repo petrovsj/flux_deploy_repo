@@ -5,8 +5,8 @@ resources:
 
 # patches:
 #   -path: patch/values-prometheus.yaml
-patches:
-  - target:
-      kind: HelmRelease
-      name: thanos
-    path: patch/values-prometheus.yaml
+# patches:
+#   - target:
+#       kind: HelmRelease
+#       name: thanos
+#     path: patch/values-prometheus.yaml
