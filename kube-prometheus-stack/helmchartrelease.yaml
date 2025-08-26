@@ -8,7 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: ./  # local chart in the same folder
+      chart: ./kube-prometheus-stack
       sourceRef:
         kind: GitRepository
         name: flux-workloads
