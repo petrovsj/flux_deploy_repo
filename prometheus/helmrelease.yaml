@@ -18,6 +18,9 @@ spec:
     prometheus:
       prometheusSpec:
         retention: 10d
+    alertmanager:
+      alertmanagerSpec:
+        replicas: 4    
     grafana:
       adminUser: admin
       adminPassword: admin
