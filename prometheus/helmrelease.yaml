@@ -24,4 +24,6 @@ spec:
     grafana:
       adminUser: admin
       adminPassword: admin
+  valuesFiles:
+    - values-prometheus.yaml    
 
