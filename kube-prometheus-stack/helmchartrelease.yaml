@@ -1,19 +1,19 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
-  name: thanos
+  name: kube-prometheus-stack
   namespace: monitoring
 spec:
-  releaseName: thanos
+  releaseName: kube-prometheus-stack
   interval: 5m
   chart:
     spec:
-      chart: ./
+      chart: kube-prometheus-stack   # chart name inside repo
+      version: 77.0.1               # pin version you want
       sourceRef:
-        kind: GitRepository
-        name: flux-workloads
+        kind: HelmRepository
+        name: prometheus-community  # match the HelmRepository above
         namespace: flux-system
-      version: 77.0.1
   values:
     alertmanager:
       alertmanagerSpec:
