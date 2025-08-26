@@ -3,5 +3,10 @@ kind: Kustomization
 resources:
   - helmrelease.yaml
 
+# patches:
+#   -path: patch/values-prometheus.yaml
 patches:
-  -path: patch/values-prometheus.yaml
+  - target:
+      kind: HelmRelease
+      name: thanos
+    path: patch/values-prometheus.yaml
