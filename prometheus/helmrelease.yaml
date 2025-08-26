@@ -20,10 +20,9 @@ spec:
         retention: 10d
     alertmanager:
       alertmanagerSpec:
-        replicas: 4    
+        replicas: 2   
     grafana:
       adminUser: admin
       adminPassword: admin
-  valuesFiles:
-    - values-prometheus.yaml    
+ 
 
