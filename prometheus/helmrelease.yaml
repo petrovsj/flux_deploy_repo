@@ -9,12 +9,19 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: "77.0.1"  # pin version if desired
+      version: "77.0.1"
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
         namespace: flux-system
-  valuesFrom:
-    - kind: ConfigMap
-      name: values-prometheus
-      valuesKey: values.yaml
+  values:
+    prometheus:
+      prometheusSpec:
+        retention: 10d
+    alertmanager:
+      alertmanagerSpec:
+        replicas: 2
+    grafana:
+      adminUser: admin
+      adminPassword: admin
+
