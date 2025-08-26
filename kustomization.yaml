@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: ./clusters/my-cluster/monitoring
+  path: ./prometheus
   prune: true
   sourceRef:
     kind: GitRepository
