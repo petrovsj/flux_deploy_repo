@@ -12,3 +12,4 @@ spec:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
+  interval: 10m  # Set the interval (e.g., 10 minutes)
