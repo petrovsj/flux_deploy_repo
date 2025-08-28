@@ -1,15 +1,28 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: thanos
+  name: thanos-query
   namespace: monitoring
 spec:
+  releaseName: thanos-query
+  interval: 5m
   chart:
     spec:
-      chart: bitnami/thanos      # Corrected chart reference
-      version: 17.3.1           # Correct version
+      chart: thanos           # <-- Must be exactly 'thanos'
+      version: 17.3.1
       sourceRef:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
-  interval: 10m  # Set the interval (e.g., 10 minutes)
+  values:
+    query:
+      http:
+        listenAddress: "0.0.0.0:9090"
+      grpc:
+        listenAddress: "0.0.0.0:10901"
+      storeGatewayAddresses:
+        - "prometheus-kube-prometheus-stack-prometheus-0.monitoring.svc.cluster.local:10901"
+      logLevel: info
+    service:
+      type: ClusterIP
+      port: 9090
