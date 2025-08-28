@@ -22,9 +22,10 @@ spec:
       prometheusSpec:
         retention: 10d
     thanos:
+      create: true
       objectStorageConfig:
-        key: objstore.yml
         name: thanos-objstore
+        key: objstore.yml
       sidecar:
         enabled: true
         image:
