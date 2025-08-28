@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: thanos-query
+  namespace: monitoring
+spec:
+  releaseName: thanos-query
+  interval: 5m
+  chart:
+    spec:
+      chart: thanos
+      version: 1.27.0
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  values:
+    query:
+      http:
+        listenAddress: "0.0.0.0:9090"      # Thanos UI
+      grpc:
+        listenAddress: "0.0.0.0:10901"
+      storeGatewayAddresses:                 # point to Prometheus sidecars
+        - "prometheus-kube-prometheus-stack-prometheus-0.monitoring.svc.cluster.loca
