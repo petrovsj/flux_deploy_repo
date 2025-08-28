@@ -4,8 +4,8 @@ metadata:
   name: thanos-query
   namespace: monitoring
 spec:
-  releaseName: thanos-query
   interval: 5m
+  releaseName: thanos-query
   chart:
     spec:
       chart: thanos
@@ -14,8 +14,6 @@ spec:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
-      # add the repository field explicitly
-      repository: https://charts.bitnami.com/bitnami
   values:
     query:
       http:
