@@ -21,16 +21,16 @@ spec:
     prometheus:
       prometheusSpec:
         retention: 10d
-    thanos:
-      create: true
-      objectStorageConfig:
-        name: thanos-objstore
-        key: objstore.yml
-      sidecar:
-        enabled: true
-        image:
-          repository: quay.io/thanos/thanos
-          tag: v1.27.0
-        logLevel: info
-        grpcListenAddress: 0.0.0.0:10901
-        httpListenAddress: 0.0.0.0:10902
+        thanos:
+          create: true
+          objectStorageConfig:
+            name: thanos-objstore
+            key: objstore.yml
+          sidecar:
+            enabled: true
+            image:
+              repository: quay.io/thanos/thanos
+              tag: v1.27.0
+            logLevel: info
+            grpcListenAddress: 0.0.0.0:10901
+            httpListenAddress: 0.0.0.0:10902
