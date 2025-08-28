@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: minio
-  namespace: monitoring
+  namespace: minio
 spec:
   chart:
     spec:
