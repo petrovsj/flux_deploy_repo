@@ -1,13 +1,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: thanos-query
+  name: thanos
   namespace: monitoring
 spec:
   chart:
     spec:
-      chart: thanos-query
-      version: 17.3.1
+      chart: bitnami/thanos      # Corrected chart reference
+      version: 17.3.1           # Correct version
       sourceRef:
         kind: HelmRepository
         name: bitnami
