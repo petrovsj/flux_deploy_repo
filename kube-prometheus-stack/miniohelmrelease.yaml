@@ -4,19 +4,27 @@ metadata:
   name: minio
   namespace: monitoring
 spec:
-  interval: 5m
   chart:
     spec:
       chart: minio
-      version: 5.x.x
+      reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: minio
+        name: bitnami
         namespace: flux-system
+      version: 14.1.4
+  interval: 1m0s
+  timeout: 20m
+  targetNamespace: minio
   values:
-    mode: standalone
-    accessKey: minio
-    secretKey: minio123
-    persistence:
-      enabled: true
-      size: 20Gi
+    auth:
+      existingSecret: minio
+    defaultBuckets: "kubeflex"
+    resources:
+      limits:
+      requests:
+        cpu: 10m
+        memory: 40Mi
+    serviceAccount: 
+      create: false
+      name: "minio"
