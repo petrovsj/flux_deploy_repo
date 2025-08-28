@@ -17,8 +17,12 @@ spec:
   values:
     query:
       http:
-        listenAddress: "0.0.0.0:9090"      # Thanos UI
+        listenAddress: "0.0.0.0:9090"
       grpc:
         listenAddress: "0.0.0.0:10901"
-      storeGatewayAddresses:                 # point to Prometheus sidecars
-        - "prometheus-kube-prometheus-stack-prometheus-0.monitoring.svc.cluster.loca
+      storeGatewayAddresses:
+        - "prometheus-kube-prometheus-stack-prometheus-0.monitoring.svc.cluster.local:10901"
+      logLevel: info
+    service:
+      type: ClusterIP
+      port: 9090
